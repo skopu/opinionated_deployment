@@ -13,7 +13,10 @@ Gem::Specification.new do |s|
   s.summary     = "TODO: Summary of StandarizedDeploy."
   s.description = "TODO: Description of StandarizedDeploy."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["lib/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency "rails", "~> 3.2.6"
+  s.add_dependency "rails", "~> 3.0"
+  s.add_dependency 'capistrano'
+  s.add_dependency 'capistrano_colors'
+  s.add_dependency 'rvm-capistrano'
 end
