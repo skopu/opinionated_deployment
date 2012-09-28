@@ -17,8 +17,6 @@ configuration.load do
   _cset(:staging_restart_workers)   { false }
   _cset(:staging_clear_redis_cache) { false }
 
-  _cset(:rails_env) { 'production' }
-
   task :staging do
     ssh_options[:forward_agent] = true
     set :rvm_ruby_string, 'default'
@@ -40,6 +38,8 @@ configuration.load do
 
     set :user, staging_app_key
     set :deploy_to,  "/home/#{user}"
+
+    set :rails_env, :staging
 
     set :branch do
       current_branch = %x[ git branch | grep ^* | awk {'print $2'} ].chomp
