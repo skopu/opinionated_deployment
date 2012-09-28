@@ -7,11 +7,11 @@ require "standarized_deploy/version"
 Gem::Specification.new do |s|
   s.name        = "standarized_deploy"
   s.version     = StandarizedDeploy::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of StandarizedDeploy."
-  s.description = "TODO: Description of StandarizedDeploy."
+  s.authors     = ["Wojtek Majewski"]
+  s.email       = ["jumski@gmail.com"]
+  s.homepage    = "http://webmandala.com"
+  s.summary     = "Set of capistrano scripts for use with our standarized stack"
+  s.description = "Set of capistrano scripts for use with our standarized stack"
 
   s.files = Dir["lib/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
