@@ -17,6 +17,8 @@ configuration.load do
   _cset(:staging_restart_workers)   { false }
   _cset(:staging_clear_redis_cache) { false }
 
+  _cset(:rails_env) { 'production' }
+
   task :staging do
     ssh_options[:forward_agent] = true
     set :rvm_ruby_string, 'default'
