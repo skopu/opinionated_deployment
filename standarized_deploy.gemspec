@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.0"
   s.add_dependency 'capistrano'
+  s.add_dependency 'capistrano-ext'
   s.add_dependency 'capistrano_colors'
   s.add_dependency 'rvm-capistrano'
 end
