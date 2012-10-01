@@ -56,9 +56,11 @@ configuration.load do
     end
   end
 
-  %w(start stop restart).each do |action|
-    task "#{action}_workers" do
-      run "cd #{current_path}; #{deploy_to}/bin/workers #{action}"
+  namespace :workers do
+    %w(start stop restart).each do |action|
+      task "#{action}" do
+        run "cd #{current_path}; #{deploy_to}/bin/workers #{action}"
+      end
     end
   end
 
@@ -68,7 +70,7 @@ configuration.load do
   end
 
   if restart_workers
-    after 'deploy', 'restart_workers'
+    after 'deploy', 'workers:restart'
   end
 
   if clear_redis_cache
