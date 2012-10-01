@@ -1,5 +1,5 @@
 
-require 'standarized_deploy/common'
+require 'opinionated_deployment/common'
 
 configuration = Capistrano::Configuration.respond_to?(:instance) ?
   Capistrano::Configuration.instance(:must_exist) :

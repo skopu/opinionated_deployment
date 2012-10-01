@@ -1,14 +1,22 @@
-# StandarizedDeploy
+# Opinionated Deployment
 
 Capistrano scripts for use with my rails app stack.
 
 It uses capistrano multistage.
 
+## It is opinionated
+
+This gem assumes that:
+
+* you use opinionated_stack (work in progress)
+* you use git
+* you have stages (staging, production etc.)
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'standarized_deploy', git: 'git://github.com/jumski/standarized_deploy.git', branch: 'multistage'
+    gem 'opinionated_deployment', git: 'git://github.com/jumski/opinionated_deployment.git'
 
 And then execute:
 
@@ -20,38 +28,32 @@ Capify your project as usual
 
     capify .
 
-Replace config/deploy.rb with following contents (based on multistage extension):
+Replace config/deploy.rb with following contents:
 
 ```ruby
 set :stages, %w(production staging)
 set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 
-set :application, "capistrano-multistage-test"
-set :user, "www-data"
-set :group, "www-data"
-
-set :scm, :git
 set :repository, "ssh://ourserver/#{application}.git"
-set :deploy_to, "/var/www/#{application}"
-set :deploy_via, :remote_cache
-set :rails_env, 'production'
 ```
 
-In your config/deploy/stage_name.rb (eg: config/deploy/staging.rb) put following code:
+In your config/deploy/staging.rb put following code:
 
 ```ruby
-set :app_name, 'foo' # standarized_stack app_name
+set :app_name, 'foo' # opinionated_stack 'app_name'
 set :app_domain, 'foo.bar.com'
 set :rails_env, :staging # defaults to production
-require 'standarized_deploy/defaults'
+require 'opinionated_deployment/defaults'
+
+# you can override all defaults here !
 ```
 
-Replace staging with production if needed.
+Replace staging with production or any other stage name if needed.
 
 You can also use both.
 
-Now you can deploy to standarized_stack staging env like this:
+Now you can deploy to opinionated_stack:
 
   cap staging deploy
 
