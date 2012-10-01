@@ -14,8 +14,8 @@ configuration.load do
     abort "Please specify :app_domain corresponding to your server, set :app_domain, 'foo.bar.com'"
   end
 
-  _cset(:staging_restart_workers)   { false }
-  _cset(:staging_clear_redis_cache) { false }
+  _cset(:restart_workers)   { false }
+  _cset(:clear_redis_cache) { false }
 
   ssh_options[:forward_agent] = true
   set :rvm_ruby_string, 'default'
@@ -67,11 +67,11 @@ configuration.load do
     run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
   end
 
-  if staging_restart_workers
+  if restart_workers
     after 'deploy', 'restart_workers'
   end
 
-  if staging_clear_redis_cache
+  if clear_redis_cache
     after 'deploy', 'redis_cache:clear'
   end
 
