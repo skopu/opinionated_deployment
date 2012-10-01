@@ -58,7 +58,7 @@ configuration.load do
 
   namespace :workers do
     %w(start stop restart).each do |action|
-      task "#{action}" do
+      task action do
         run "cd #{current_path}; #{deploy_to}/bin/workers #{action}"
       end
     end
