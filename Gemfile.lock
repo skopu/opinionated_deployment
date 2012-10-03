@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    standarized_deploy (0.0.1)
+    opinionated_deployment (0.0.2)
       capistrano
       capistrano-ext
       capistrano_colors
@@ -117,4 +117,4 @@ PLATFORMS
 
 DEPENDENCIES
   jquery-rails
-  standarized_deploy!
+  opinionated_deployment!
