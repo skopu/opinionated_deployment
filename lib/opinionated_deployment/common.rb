@@ -1,5 +1,5 @@
 require 'rvm/capistrano'
-require 'bundler/capistrano'
+#require 'bundler/capistrano'
 require 'capistrano_colors'
 
 def _cset(name, *args, &block)
