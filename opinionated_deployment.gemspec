@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
 
   s.files = Dir["lib/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency "rails", "~> 3.0"
+  #s.add_dependency "rails", "~> 3.0"
+  s.add_dependency 'rails', '>= 3.0.0'
   s.add_dependency 'capistrano'
   s.add_dependency 'capistrano-ext'
   s.add_dependency 'capistrano_colors'
